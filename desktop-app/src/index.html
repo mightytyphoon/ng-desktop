@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Desktop App</title>
+  <base href="/">
+  <script>
+    // create the nw_global 
+    window.nw_global = window.global;
+    window.global = undefined;
+    if(require) {
+      window.fs = require('fs');
+    } else {
+      alert('this app must not run in browser');
+    }
+/*     // reload on file changes
+    var path = './';
+    var fs = require('fs');
+  
+    var reloadWatcher=fs.watch(path, function() {
+      setTimeout(() => {
+        location.reload();
+    reloadWatcher.close();
+      } , 1000) 
+  }); */
+</script>
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

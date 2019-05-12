@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "$schema": "http://json-schema.org/draft-07/schema", // delete this for intellisense
+    "tasks": [
+        {
+            "label": "Webapp DevMode",
+            "type": "shell",
+            "command": "cd webapp && ng serve",
+            "auto": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Mobile App DevMode",
+            "type": "shell",
+            "auto": true,
+            "command": "cd mobileapp && ionic serve --lab",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+        }
+    ]
+}

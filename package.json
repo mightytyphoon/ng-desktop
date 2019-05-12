@@ -1,0 +1,22 @@
+{
+  "name": "ng-desktop-app",
+  "version": "1.0.0",
+  "description": "a quick start project for a angular desktop app",
+  "main": "http://localhost:8000/",
+  "node-remote": "http://localhost:8000/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "cd desktop-app && npm i",
+    "dev:build": "cd desktop-app && ng build --watch --output-path=../dist --base-href=.",
+    "dev:serve": "lite-server -c lite-server-config.json",
+    "dev:start": "nw ."
+  },
+  "author": "Laurent Boukhadcha",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "electron": "^5.0.1",
+    "lite-server": "^2.4.0",
+    "nw": "^0.38.2"
+  }
+}
