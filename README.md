@@ -2,10 +2,10 @@
 
 # Angular 7 Desktop QuickStart with nw (node webkit)
 
-    `npm i` to install
+    `npm i` to install (long install)
     `npm run dev:build` to build the app in dist folder and watch changes
     `npm run dev:serve` to serve the build on disk in dist folder
-    `npm run dev:start` to start the app with nw and reload if there are changes
+    `npm run dev:start` to start the app with nw and reload if there are changes (wait for build + server launch before starting nw)
 
 # Steps
     1. create angular app
@@ -28,3 +28,4 @@
 # Things to upgrade
     1. use nw on the disk directly instead of using lite-server
     2. reload page on dist folder changes, using location.reload() which will be faster than current method
+    3. launching => wait for angular to finish build, then launch server, then launch the app
