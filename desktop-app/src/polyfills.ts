@@ -71,5 +71,9 @@ declare global {
       nw: any;
       // fs: typeof fs; // TODO put the type of fs inside
       fs: any;
+      cp: any;
+      nw_global: any;
+      global: any;
     }
   }
+

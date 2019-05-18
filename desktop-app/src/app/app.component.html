@@ -1,4 +1,17 @@
-App works ! <br>
-<button [routerLink]="[ '/landing' ]">go to landing page</button>
-
-<router-outlet></router-outlet>
+<div *ngIf="!hideApp">
+        App works ! <br>
+        <button [routerLink]="[ '/landing' ]">go to landing page</button>
+        <button [routerLink]="[ '/new' ]">go to new page</button>
+        <p>test</p>
+        <p>test</p>
+        <p>test</p>
+        <p>test</p>
+        <p>test</p>
+        <div class="okok">that's great</div>
+        <button (click) = "reloadApp()">reload app</button>
+    <router-outlet></router-outlet>
+</div>
+<div class="center" *ngIf="hideApp">
+    THIS APP IS FOR DESKTOP USE ONLY <br>
+    IT WILL NOT WORK IN BROWSER
+</div>

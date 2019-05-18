@@ -1,5 +1,7 @@
 {
     "open": false,
     "port": 8000,
-    "server" : { "baseDir": "./dist" }
+    "server" : { "baseDir": "./dist" },
+    "files": null,
+    "notify": false
 }
