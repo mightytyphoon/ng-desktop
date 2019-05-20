@@ -1,3 +1,6 @@
+'use strict';
+console.time('time used');
+
 // build script
 
 /*
@@ -10,15 +13,25 @@
 
 */
 
-console.time('time used');
+const exit = function() {
+    console.timeEnd('time used');
+    process.exit();
+}
 
-import { exec, execSync } from 'child_process';
-import { readdir, copyFileSync, readFileSync } from 'fs';
+const args = process.argv
+console.log(args);
+console.log('remove the exit in build.js to continue the build script');
+exit();
+
+const cp = require('child_process');
+const fs = require('fs');
+
 let nwjcDir;
 let natives_blob_path = null;
 let v8_context_snapshot_path = null;
 const ngBuildPath = './build';
 const jsFiles = [];
+
 
 // ADD RECURSIVE FOR JS FILES
 
@@ -30,7 +43,9 @@ const jsFiles = [];
 
 
 // check where nwjc is
-exec('where nwjc' , (error , stdout , stderr) => {
+
+// if OS = windows
+cp.exec('where nwjc' , (error , stdout , stderr) => {
     // console.log(stderr);
     if(error) {
         console.log(`nwjc wasn't found, is it in the PATH environment variable ?`);
@@ -40,7 +55,7 @@ exec('where nwjc' , (error , stdout , stderr) => {
         console.log('copying needed files');
         // take out the \nwjc.exe at the end
         nwjcDir = nwjcDir.slice(0 , nwjcDir.length - 11);
-        readdir(nwjcDir , 'utf8' , (error , data) => {
+        fs.readdir(nwjcDir , 'utf8' , (error , data) => {
             for(const file of data) {
                 if(file === 'natives_blob.bin') {
                     natives_blob_path = nwjcDir + `\\` + file;
@@ -64,7 +79,7 @@ exec('where nwjc' , (error , stdout , stderr) => {
 });
 
 const listBuildFiles = function() {
-    readdir(ngBuildPath , 'utf-8' , (error , data) => {
+    fs.readdir(ngBuildPath , 'utf-8' , (error , data) => {
         for(const file of data) {
             if(file.slice(file.length - 3 , file.length) === '.js') {
                 jsFiles.push(file);
@@ -83,17 +98,24 @@ const listBuildFiles = function() {
 }
 
 const encryptFiles = function(files) {
+    // ADD file to encrypt selection later
+    // with GUI => GUI should propose to select the js files found in the build folder and encrypt the selected ones
+    // maybe avoid to encrypt boot.js (if possible encrypt it also)
+    // check in working-build for import structure of js scripts and bin scripts
+    // all js files should be deleted after encryption
+    // bin files should be all put in a bin folder
+    // there should be just one boot.js file imported that will handle the binaries import and the shit with window.global needed by angular to be undefined
     console.log('start file encryption');
     for(const file of files) {
         const fileName = file.slice(0 , file.length - 3);
-        execSync('nwjc ' + fileName + '.js ' + fileName + '.bin' , {cwd: ngBuildPath});
+        cp.execSync('nwjc ' + fileName + '.js ' + fileName + '.bin' , {cwd: ngBuildPath});
     }
-    console.log('files encrypted , need to add in index their import');
+    console.log('files encrypted , need to add in index their import and delete js files encrypted');
     importEncryptedFilesInIndex();
 }
 
 const importEncryptedFilesInIndex = function() {
-    let index = readFileSync(ngBuildPath + '/index.html' , {encoding: 'utf8'});
+    let index = fs.readFileSync(ngBuildPath + '/index.html' , {encoding: 'utf8'});
     // const scriptRegex = /<script>\[\s\S]*?\<\/script>/g;
     const scriptRegex = /<script/g;
     let match;
@@ -143,11 +165,6 @@ const importEncryptedFilesInIndex = function() {
 }
 
 const deleteJsFiles = function() {}
-
-const exit = function() {
-    console.timeEnd('time used');
-    process.exit();
-}
 
 
 // TO FINISH !!!!!!!!!!!

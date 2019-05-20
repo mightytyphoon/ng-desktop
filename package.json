@@ -9,7 +9,10 @@
     "preinstall": "cd desktop-app && npm i",
     "dev:build": "cd desktop-app && ng build --watch --output-path=../dist --base-href=.",
     "dev:serve": "lite-server -c lite-server-config.json",
-    "dev:start": "nw ."
+    "dev:start": "nw .",
+    "ng:serve": "ng serve --port=8000",
+    "build:prod": "node build.js",
+    "build:package": "echo build package"
   },
   "window": {
     "single-instance": false
@@ -18,8 +21,6 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^12.0.0",
-    "electron": "^5.0.1",
-    "lite-server": "^2.4.0",
     "nw": "^0.38.2"
   }
 }

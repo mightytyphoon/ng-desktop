@@ -7,6 +7,17 @@
     `npm run dev:serve` to serve the build on disk in dist folder
     `npm run dev:start` to start the app with nw and reload if there are changes (wait for build + server launch before starting nw)
 
+    UPDATES (get rid of lite-server and electron for now)
+
+    `npm run ng:serve` to serve the app on port 8000 (change it later)
+    `npm run build:prod` to build the project for production // finish the build.js script
+    `npm run build:package` to build the project package
+
+    later change all commands for simplier ones
+    in package launch js scripts with npm run "command": "node code.js";
+
+    can pass argument with : npm run build:prod -- --output-dir banane --encrypt
+
 # Steps
     1. create angular app
     2. dev:build line : ```cd desktop-app && ng build --watch --output-path=../dist --base-href=.```
