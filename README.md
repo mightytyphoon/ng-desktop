@@ -29,6 +29,11 @@
     8. add a lite-server-config file to forbidd opening and choose port for local dev
     9. add node-remote: 'http://localhost:port' and main: 'http://localhost:port'
        1.  node remote is very important
+    10. added commitizen to make better commits 
+        1.  https://loopback.io/doc/en/lb4/submitting_a_pr.html#3-make-changes-locally
+        2.  https://github.com/commitizen/cz-cli
+        3.  First, install the Commitizen cli tools: ``npm install commitizen -g``
+        4.  Next, initialize your project to use the cz-conventional-changelog adapter by typing: ``commitizen init cz-conventional-changelog --save-dev --save-exact``
 
 # Things to do
     1. build the app for production
