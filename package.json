@@ -7,10 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "cd desktop-app && npm i",
-    "dev:build": "cd desktop-app && ng build --watch --output-path=../dist --base-href=.",
-    "dev:serve": "lite-server -c lite-server-config.json",
     "dev:start": "nw .",
-    "ng:serve": "ng serve --port=8000",
+    "dev:serve": "cd desktop-app && ng serve --port=8000",
     "build:prod": "node build.js",
     "build:package": "echo build package"
   },
@@ -20,7 +18,12 @@
   "author": "Laurent Boukhadcha",
   "license": "ISC",
   "devDependencies": {
+    "@types/execa": "^0.9.0",
     "@types/node": "^12.0.0",
     "nw": "^0.38.2"
+  },
+  "dependencies": {
+    "execa": "^1.0.0",
+    "fs-extra": "^8.0.1"
   }
 }

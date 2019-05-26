@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 // declare const nw: any; // TODO global declaration
 // https://dev.to/thejaredwilcurt/angular-cli-and-nwjs-for-development-49gl
+/* import { ChildProcess } from 'child_process';
+import * as fs from 'fs';
+import * as nw from 'nw'; */
 
 @Component({
   selector: 'app-root',
@@ -12,6 +15,8 @@ export class AppComponent {
   win: any;
   timeout: any;
   constructor() {
+    console.log('from constructor of app' , window.fs);
+    console.log('from constructor of app, execa' , window.execa);
     // console.log(window.nw);
     // console.log(window.fs);
     if (typeof window.nw !== 'undefined') {

@@ -1,0 +1,1 @@
+// script to create typings that are forbidden by angular

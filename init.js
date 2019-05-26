@@ -2,6 +2,8 @@
 // create angular project
 // add fs, nw to global in angular interface
 // init package with name, scope, index
+// ask for default port for ng serve & node remote + main in package.json
+// maybe if port is already use, change it automatically
 // add the build scripts, distro scripts etc...
 
 console.log('init a desktop app');

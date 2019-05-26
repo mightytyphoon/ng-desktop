@@ -59,7 +59,12 @@
         1.  change port automatically if taken
     11. ADD draggable areas  : https://github.com/nwjs/nw.js/issues/2680 / https://github.com/nwjs/nw.js/wiki/Frameless-window
         1.  make a frameless transparent window with a header that can be dragged
-
+    12. make a command line tool that will handle the creation of ng desktop app
+    13. dont take the package with nw and install out of the angular interface
+        1.  ng interface must be mixed with nw . as it will take the new installations
+        2.  all needed stuff should be put first in global interface of polyfills
+        3.  cant use the native nodejs module sadly...
+        4.  finish the command line that will create the ng interface + change polyfills + change package scripts + install nw if needed + change index.html
 # Packaging nwjs
 
 {

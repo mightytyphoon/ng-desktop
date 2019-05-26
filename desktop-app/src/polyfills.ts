@@ -64,14 +64,23 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
+// import { ChildProcess } from 'child_process';
 
+// TODO add global node typings for node
+// make a auto typings maker ?
+
+import * as fs from 'fs-extra';
+import * as execa from 'execa';
+// import * as nw from 'nw';
 
 declare global {
     interface Window {
       nw: any;
       // fs: typeof fs; // TODO put the type of fs inside
-      fs: any;
+      fs: typeof fs;
+      // cp: ChildProcess;
       cp: any;
+      execa: typeof execa;
       nw_global: any;
       global: any;
     }
